@@ -47,7 +47,9 @@
                 class="btn btn-outline"
                 type="button"
               >
-                <!-- <b-icon font-scale="1" icon="search" variant="white"></b-icon> -->
+              <span class="material-icons icon-search">
+                search
+              </span>
               </button>
             </div>
             <li class="nav-item">
@@ -77,7 +79,9 @@ export default {
   z-index: 2;
   width: 100%;
 }
-
+.icon-search {
+  color: white;
+}
 .nav-opacity {
     background: linear-gradient(80deg, $primary, $secondary);
 }

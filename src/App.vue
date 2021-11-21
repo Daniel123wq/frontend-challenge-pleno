@@ -31,4 +31,12 @@ body::-webkit-scrollbar-thumb {
     color-stop(0.40, $primary)
   );
 }
+.hr {
+  width: 100%;
+  min-height: 3rem;
+  margin-bottom: 2%;
+  border-bottom-color: #0000002d;
+  border-style: none none solid none;
+  border-width: thin;
+}
 </style>

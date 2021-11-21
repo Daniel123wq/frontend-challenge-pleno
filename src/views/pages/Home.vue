@@ -1,77 +1,171 @@
 <template>
-    <banner class="banner-opacity" :banners="banners"/>
-    <div class="corpo">
-        <div class="conteudo">
-            <card title="Teste" description="Eu estou so testando" color="white" backgroundColor="black" />
-        </div>
-        <div class="rodape">
-
+  <banner class="banner-opacity" :banners="banners" />
+  <div class="container-main">
+    <div class="hr"></div>
+    <div class="content-info">
+      <card
+        v-for="{ id, title, icon, description } in resultServices"
+        v-bind:key="id"
+        class="content-info -card mt-5 m-2"
+        :icon="icon"
+        :title="title"
+        :description="description"
+        :color="`${id % 2 == 1 ? 'white' : 'black'}`"
+        :backgroundColor="`${id % 2 == 1 ? 'primary' : 'white'}`"
+      />
+    </div>
+    <div class="hr"></div>
+    <div class="attendance">
+      <div class="text-containt">
+        <p class="fs-2">Atendimento ao Cliente</p>
+        <p class="fs-6 text-muted">
+          Precisando entrar em contato, utilize nossos canais de atendimento ou
+          consulte a documentaçaão para mais informação
+        </p>
+        <p class="btn-group">
+          <button type="button" class="btn btn-quaternary btn-lg">
+            Envie um Ticket
+          </button>
+          <button type="button" class="btn btn-tertiary btn-lg">
+            Documentação
+          </button>
+        </p>
+      </div>
+      <img
+        class="image-right"
+        src="~@/assets/images/PC.png"
+        alt=""
+        width="877"
+        height="357"
+      />
+    </div>
+    <div class="baseboard-info">
+        <div class="newsletter">
+            <p class="fs-2 text-white w-100">
+                Newsletter
+            </p>
+            <p class="fs-6 text-muted">
+                Receba nossas informações por email e fique sabendo de todas as novidades
+            </p>
         </div>
     </div>
+
+  </div>
 </template>
 
 <script>
-import Banner from "@/components/Banner.vue"
-import Card from "@/components/Card.vue"
+import Banner from "@/components/Banner.vue";
+import Card from "@/components/Card.vue";
+import BaseEntity from "@/utils/BaseEntity.js";
 export default {
-    components: { Banner, Card },
-    data: () => {
-        return {
-            banners: [
-                {
-                    id: 1,
-                    src: "https://blog.superbid.net/wp-content/uploads/2021/08/Joias-Raras-Aneis-gargantilhas-dedeiras-e-diversas-outras-joias-no-marketplace-da-Superbid.jpg.jpg",
-                    descricao: "Joia Linda de se ver 1",
-                },
-                {
-                    id: 2,
-                    src: "https://img.freepik.com/fotos-gratis/colecao-moderna-de-pulseira-e-aneis-de-forma-de-arco-dourado-na-plataforma-de-cilindros-brancos_112112-277.jpg?size=626&ext=jpg",
-                    descricao: "Joia Linda de se ver 2",
-                },
-                {
-                    id: 3,
-                    src: "https://http2.mlstatic.com/D_NQ_NP_765338-MLB29029901429_122018-O.jpg",
-                    descricao: "Joia Linda de se ver 3",
-                },
-                {
-                    id: 4,
-                    src: "https://http2.mlstatic.com/D_NQ_NP_843026-MLB31255400110_062019-O.jpg",
-                    descricao: "Joia Linda de se ver 4",
-                },
-            ]
-        }
+  components: { Banner, Card, BaseEntity },
+  data: () => {
+    return {
+      resultServices: [],
+      banners: [],
+    };
+  },
+  async mounted() {
+    let services = new BaseEntity("services");
+    this.resultServices = await services.findAll();
+    this.banners = await services.setEndpoint("banners").findAll();
+
+    window.addEventListener("scroll", this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
+  methods: {
+    onScroll: function () {
+      let navbar = window.document.getElementsByClassName("navbar")[0];
+      let perc = window.scrollY * 0.002;
+      let percCalc = 1 - perc;
+      document.documentElement.style.setProperty("--opacity-banner", percCalc);
+      if (percCalc <= 0.3) {
+        navbar.classList.add("nav-opacity");
+      } else {
+        navbar.classList.remove("nav-opacity");
+      }
     },
-    mounted () {
-        window.addEventListener('scroll', this.onScroll)
-    },
-    beforeDestroy () {
-        window.removeEventListener('scroll', this.onScroll);
-    },
-    methods: {
-        onScroll: function () {
-            let navbar = window.document.getElementsByClassName('navbar')[0]
-            let perc = window.scrollY * 0.002
-            let percCalc = 1 - perc
-            document.documentElement.style.setProperty("--opacity-banner", percCalc)
-            if (percCalc <= 0.3) {
-                navbar.classList.add("nav-opacity");
-            } else {
-                navbar.classList.remove("nav-opacity");
-            }
-        }
-    }
-}
+  },
+};
 </script>
 <style lang="scss">
-    .banner-opacity {
-        opacity: var(--opacity-banner, $opacity-banner);
+.banner-opacity {
+  opacity: var(--opacity-banner, $opacity-banner);
+}
+.container-main {
+  z-index: 0;
+  background-color: white;
+  position: absolute;
+  top: 33.2rem;
+  min-height: 40rem;
+  width: 100%;
+
+  > .content-info {
+    padding: 4%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  > .content-info > .-card {
+    width: 32%;
+    height: 17rem;
+  }
+   > .attendance {
+    min-height: 20rem;
+    display: flex;
+    justify-content: space-between;
+    > .text-containt {
+      padding: 4%;
     }
-    .corpo {
-        z-index: 0;
-        background-color: white;
-        position: absolute;
-        top: 33.2rem;
-        height: 6000px;
+  }
+  @media (min-width: 350px) and (max-width: 576px) {
+    > .content-info > .-card {
+      width: 100%;
+      height: 17rem;
+    }
+
+    > .attendance {
+      min-height: 20rem;
+      display: flex;
+      flex-direction: column;
+      > .text-containt {
+        padding: 4%;
+      }
+      > .image-right {
         width: 100%;
+        height: 50%;
+      }
     }
+  }
+
+ 
+
+  .btn-quaternary {
+    background-color: $quaternary;
+    color: #fff;
+    border-color: #ffffff;
+  }
+  .btn-tertiary {
+    background-color: $tertiary;
+    color: #fff;
+    border-color: #ffffff;
+  }
+
+  > .baseboard-info {
+    background-color: $background-baseboard;
+    min-height: 10rem;
+    text-align: center;
+    > .newsletter {
+      display: flex;
+      flex-direction: column ;
+      justify-content: center;
+      padding: 2% 2% 0 2%;
+    }
+  }
+  > .navbar-footer {
+      
+  }
+}
 </style>

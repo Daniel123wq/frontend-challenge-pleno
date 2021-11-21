@@ -82,10 +82,13 @@ export default {
 }
 @media (min-width: 350px) and (max-width: 576px) {
   .swiper {
-    width: 50%;
+    width: 80%;
     right: 0;
-    height: 25rem;
-    margin-top: 20%;
+    height: 15rem;
+    margin-top: 30%;
+  }
+  .top-container {
+    height: 50%;
   }
 }
 .swiper-slide {

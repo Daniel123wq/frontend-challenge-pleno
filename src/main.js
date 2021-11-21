@@ -5,7 +5,6 @@ import "bootstrap"
 import { BootstrapVueIcons } from 'bootstrap-vue'
 import router from './router'
 
-
 createApp(App, BootstrapVueIcons)
 .use(router, BootstrapVueIcons)
 .mount('#app')

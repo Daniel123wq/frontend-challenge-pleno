@@ -2,21 +2,49 @@
   "services": [
     {
       "id": 1,
-      "image": "icon-1.png",
-      "title": "Estamos Integrados",
-      "description": "Os títulos e descrições destes itens devem ser requisitados de uma API fictícia. Utilize o json-server para simular uma API."
+      "icon": "diamond",
+      "title": "Você em Primeiro Lugar",
+      "description": "Você pode customizar suas jóias, no padrão que desejar, e lhe oferecemos alguns modelos."
     },
     {
       "id": 2,
-      "image": "icon-2.png",
-      "title": "Estamos Integrados 2",
-      "description": "Os títulos e descrições destes itens devem ser requisitados de uma API fictícia. Utilize o json-server para simular uma API."
+      "icon": "admin_panel_settings",
+      "title": "Segurança e Garantia",
+      "description": "Fidelidade? sim, infinitamente e você pode aderir ao pacote de seguro para suas jóias."
     },
     {
       "id": 3,
-      "image": "icon-3.png",
-      "title": "Estamos Integrados 3",
-      "description": "Os títulos e descrições destes itens devem ser requisitados de uma API fictícia. Utilize o json-server para simular uma API."
+      "icon": "update",
+      "title": "Sempre Entregando o Novo",
+      "description": "Nosso inventario tem joias novas a cada dia."
+    },
+    {
+      "id": 4,
+      "icon": "update",
+      "title": "Sempre Entregando o Novo",
+      "description": "Nosso inventario tem joias novas a cada dia."
+    }
+  ],
+  "banners": [
+    {
+      "id": 1,
+      "src": "https://blog.superbid.net/wp-content/uploads/2021/08/Joias-Raras-Aneis-gargantilhas-dedeiras-e-diversas-outras-joias-no-marketplace-da-Superbid.jpg.jpg",
+      "descricao": "Joia Linda de se ver 1"
+    },
+    {
+      "id": 2,
+      "src": "https://img.freepik.com/fotos-gratis/colecao-moderna-de-pulseira-e-aneis-de-forma-de-arco-dourado-na-plataforma-de-cilindros-brancos_112112-277.jpg?size=626&ext=jpg",
+      "descricao": "Joia Linda de se ver 2"
+    },
+    {
+      "id": 3,
+      "src": "https://http2.mlstatic.com/D_NQ_NP_765338-MLB29029901429_122018-O.jpg",
+      "descricao": "Joia Linda de se ver 3"
+    },
+    {
+      "id": 4,
+      "src": "https://http2.mlstatic.com/D_NQ_NP_843026-MLB31255400110_062019-O.jpg",
+      "descricao": "Joia Linda de se ver 4"
     }
   ],
   "clients": [
