@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark pad">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-device pad">
     <div class="container-fluid mt-4">
       <a class="navbar-brand" href="#">
         <img
@@ -47,7 +47,7 @@
                 class="btn btn-outline"
                 type="button"
               >
-                <b-icon font-scale="1" icon="search" variant="white"></b-icon>
+                <!-- <b-icon font-scale="1" icon="search" variant="white"></b-icon> -->
               </button>
             </div>
             <li class="nav-item">
@@ -70,3 +70,26 @@ export default {
   props: {},
 };
 </script>
+
+<style lang="scss" scoped>
+.navbar {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+.nav-opacity {
+    background: linear-gradient(80deg, $primary, $secondary);
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 350px) and (max-width: 576px) {
+  .navbar-collapse {
+    background: linear-gradient(80deg, $primary, $tertiary);
+    border-color: $secondary;
+    border-style: inset;
+    border-color: $primary;
+    text-align: center;
+  }
+}
+
+</style>

@@ -2,9 +2,11 @@
 $font-stack: Roboto, Raleway;
 $navbar-padding-x: 3rem;
 $navbar-nav-link-padding-x: 1.5rem;
-
+$opacity-banner: 1;
+$visible-bg-nav: none !important;
 $primary: #27C8D2;
 $secondary: #8E3DF2;
+$tertiary: #4C97DD;
 // $primary: white;
 :root {
     --bs-blue: #0d6efd;
@@ -32,4 +34,21 @@ $secondary: #8E3DF2;
     --bs-font-monospace: $font-stack;//SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   }
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {}
 @import '../../node_modules/bootstrap/scss/bootstrap';
